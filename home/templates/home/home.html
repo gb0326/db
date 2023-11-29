@@ -1,0 +1,85 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Crime Insight</title>
+        {% include 'home/navbar.html' %}
+   </head> 
+   <body class="sb-nav-fixed">
+     <section id="hero" class="d-flex align-items-center">
+       <div id="layoutSidenav" style="width=100%">
+         <div id="layoutSidenav_content">
+           <main>
+             <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+               <div class="row justify-content-center">
+                 <div class="col-xl-7 col-lg-9 text-center">
+                   <h1>Welcome to Crime Insight</h1>
+                     <h2>범죄 정보 시각화 웹사이트입니다.</h2>
+                 </div>
+               </div>
+               
+               <div class="row icon-boxes justify-content-center">
+                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                   <div class="icon-box">
+                     <div class="icon"><i class="ri-stack-line"></i></div>
+                     <h4 class="title"><a href="{% url 'data:safemap' %}">Safe Map</a></h4>
+                     <p class="description">안심귀가를 위해 안심 CCTV의 위치를 표시해주는 지도입니다.</p>
+                   </div>
+                 </div>
+              
+                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="700">
+                   <div class="icon-box">
+                     <div class="icon"><i class="ri-palette-line"></i></div>
+                     <h4 class="title"><a href="{% url 'data:region' %}">지역별 범죄 정보</a></h4>
+                     <p class="description">지역별로 범죄 유형 및 발생 건수에 대해 살펴봅니다.</p>
+                   </div>
+                   </div>
+         
+                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
+                   <div class="icon-box">
+                     <div class="icon"><i class="ri-command-line"></i></div>
+                     <h4 class="title"><a href="{% url 'data:arrest' %}">범죄 발생 및 검거 정보</a></h4>
+                     <p class="description">장소별로 범죄 유형 및 발생 건수에 대해 살펴봅니다.</p>
+                   </div>
+                 </div>
+             </div>
+           </main>
+         </div>
+       </div>            
+     </section>
+     <footer class="py-4 bg-light mt-auto">
+         <div class="container-fluid px-4">
+             <div class="d-flex align-items-center justify-content-between small">
+                 <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                 <div>
+                     <a href="#">Privacy Policy</a>
+                     &middot;
+                     <a href="#">Terms &amp; Conditions</a>
+                 </div>
+             </div>
+         </div>
+     </footer>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+     <script src="{% static 'js/scripts.js' %}"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+     <script src="{% static 'assets/demo/chart-area-demo.js' %}"></script>
+     <script src="{% static 'assets/demo/chart-bar-demo.js' %}"></script>
+     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+     <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+     <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+     <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+     <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+     <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+     <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+     <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+     <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+<!-- Template Main JS File -->
+     <script src="{% static 'assets/js/main.js' %}"></script>
+ </body>
+</html>

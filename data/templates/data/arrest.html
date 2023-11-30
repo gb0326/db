@@ -19,91 +19,23 @@
         <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
         <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
         {% include 'home/navbar.html' %}
-
-        <script type="text/javascript">
-            FusionCharts.ready(function () {
-                var chartConfig = {
-                    type: 'column2d',
-                    renderAt: 'chart-1',
-                    width: '700',
-                    height: '700',
-                    dataSource: {
-                        // 여기에 차트 데이터 및 설정 추가
-                        "chart": {
-                            "caption": "서울시 범죄 발생 수",
-                            "xAxisName": "자치구",
-                            "yAxisName": "발생",
-                            "theme": "fusion"
-                        },
-                        "data": [{
-                            "label": "중구",
-                            "value": "42"
-                        }, {
-                            "label": "관악구",
-                            "value": "81"
-                        }, {
-                            "label": "용산구",
-                            "value": "72"
-                        }]
-                    }
-                };
-                var chart = new FusionCharts(chartConfig);
-                chart.render();     //이거 반복문 돌려서 추가하면 될듯
-                var newData = {
-                    "label": "Apr",
-                    "value": "61"
-                    
-                };
-                // 차트 데이터 소스에 추가
-                chartConfig.dataSource.data.push(newData);
-                // 차트 새로고침
-                chart.setChartData(chartConfig.dataSource);
-                
-                var chartConfig2 = {
-                    type: 'column2d',
-                    renderAt: 'chart-2',  // 두 번째 차트가 표시될 div의 ID
-                    width: '700',
-                    height: '700',
-                    dataSource: {
-                        // 두 번째 차트의 데이터 및 설정 추가
-                        // 예시 데이터
-                        "chart": {
-                            "caption": "서울시 범죄 검거 수",
-                            "xAxisName": "자치구",
-                            "yAxisName": "검거",
-                            "theme": "fusion"
-                        },
-                        "data": [{
-                            "label": "Apr",
-                            "value": "530000"
-                        }, {
-                            "label": "May",
-                            "value": "670000"
-                        }, {
-                            "label": "Jun",
-                            "value": "720000"
-                        }]
-                    }
-                };
-                var chart2 = new FusionCharts(chartConfig2);
-                chart2.render();
-
-            });
-        </script>
-
     </head>
+    {{ output1|safe }}
+    {{ output2|safe }} <!--그래프-->
     <body class="sb-nav-fixed">
         <section id="hero" class="d-flex align-items-center">
             <div id="layoutSidenav">
               <div id="layoutSidenav_content">
                 <main>
                     <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="chart-container" style="width: 600; border-right: 1px solid black;">
-                            <h3>범죄자 발생</h3>
-                            <div id="chart-1">{{ output|safe }}</div>
+                        <div class="chart-container" style="margin-left: 3rem">
+                            <h3>서울시 범죄 발생 현황</h3>
+                            <div id="chart-1"></div>
                         </div>
-                        <div class="chart-container" style="width: 600;">
-                            <h3>범죄자 검거</h3>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div class="chart-container" style="margin-left: 3rem">
+                            <h3>서울시 범죄 검거 현황</h3>
                             <div id="chart-2"></div>
                         </div>
                     </div>

@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from .fusioncharts import FusionCharts
-from .models import Crime
-from .models import Clearance
+from .models import Crime, Clearance, Ccctv, Rate
+from .models import YongsanBylocation, GangnamBylocation, DongjakBylocation
 
-# Create your views here.
 def arrest(request):
     Crime_data = Crime.objects.all()
     Clearance_data = Clearance.objects.all()
@@ -73,13 +72,24 @@ def arrest(request):
     }
     chartObj1 = FusionCharts('dragcolumn2d', 'ex1', '1000', '450', 'chart-1', 'json', chart1_data)
     chartObj2 = FusionCharts('dragcolumn2d', 'ex2', '1000', '450', 'chart-2', 'json', chart2_data)
-    return render(request, 'data/arrest.html', {'output1': chartObj1.render(), 'output2': chartObj2.render()})
+    rate_data = Rate.objects.all()
+    return render(request, 'data/arrest.html', {'output1': chartObj1.render(), 'output2': chartObj2.render(), 'rate_data' : rate_data})
+    
+def safemap(request):
+    cctv_data = Ccctv.objects.all()
+    return render(request, 'data/safemap.html', {'cctv_data' : cctv_data})
 
-
-def location(request) :
-    return render(request, 'data/location.html')
-def safemap(request) :
-    return render(request, 'data/safemap.html')
 def region(request) :
     return render(request, 'data/region.html')
-    
+
+def yongsan(request):
+    yongsan_data = YongsanBylocation.objects.all()
+    return render(request, 'data/yongsan.html', {'yongsan_data': yongsan_data})
+
+def gangnam(request):
+    gangnam_data = GangnamBylocation.objects.all()
+    return render(request, 'data/gangnam.html', {'gangnam_data': gangnam_data})
+
+def dongjak(request):
+    dongjak_data = DongjakBylocation.objects.all()
+    return render(request, 'data/dongjak.html', {'dongjak_data': dongjak_data}) 

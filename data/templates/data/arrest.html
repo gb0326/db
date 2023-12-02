@@ -43,6 +43,47 @@
               </div>
             </div>            
           </section>
+          <section id="hero" class="d-flex align-items-center">
+            <div id="layoutSidenav" style="width: 100%">
+             <div id="layoutSidenav_content">
+                 <main>
+                     <div class="container-fluid px-4" style="width: 100%">
+                         <h1 class="mt-4">지역구별 범죄 검거율</h1>
+                         <ol class="breadcrumb mb-4">
+                             <li class="breadcrumb-item active">지역구별 범죄 검거율</li>
+                         
+                                <tr>
+                             </div>
+                             <div class="card-body" >
+                                 <table id="datatablesSimple">
+                                     <thead>
+                                         <tr>
+                                             <th>장소</th>
+                                             <th>검거율</th>
+                                         </tr>
+                                     </thead>
+                                     <tfoot>
+                                         <tr>
+                                             <th>장소</th>
+                                             <th>검거율</th>
+                                         </tr>
+                                     </tfoot>
+                                     <tbody>
+                                         {% for data in rate_data %}
+                                             <tr>
+                                                 <td>{{ data.district }}</td>
+                                                 <td>{{ data.detection_rate }}</td>
+                                             </tr>
+                                         {% endfor %}
+                                     </tbody>
+                                 </table>
+                             </div>
+                         </div>
+                     </div>
+                 </main>
+              </div>
+            </div>            
+          </section>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

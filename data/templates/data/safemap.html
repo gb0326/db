@@ -1,5 +1,5 @@
+{% load static%}
 <!DOCTYPE html>
-{% load static %}
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,7 +24,7 @@
 		
 	
 	
-</style>
+    </style>
 	<article data-theme="dark">
 	<header>
 		<link href="{% static 'css/styles.css' %}" rel="stylesheet" />
@@ -34,17 +34,18 @@
 <body>
 <p style="margin-top:-12px">
 </p>
-<div id="map" style="width:100%;height:1000px;"></div>
+<div id="map" style="width:100%;height:800px;"></div>
 
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2a6fa26b5611310b642937947b2f84aa"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도의 중심좌표
     mapOption = { 
         center: new kakao.maps.LatLng(37.5135217,126.9739251), // 지도의 중심좌표
-        level: 8 // 지도의 확대 레벨
+        level: 9 // 지도의 확대 레벨
     }; 
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
 
 
 
@@ -90,54 +91,56 @@ function displayMarker(locPosition, message) {
 
 
 // 센터명, 위치 정보
+// 센터명, 위치 정보
 var positions = [
-{
-	title: '<div style="padding:5px;"> cctv 설치 주소 </div>',
-	lating: new kakao.maps.LatLng( 37.5313805, 126.9798839 )
-},
-
+    {% for data in cctv_data %}
+        {
+            title: '{{ data.address|safe }}',
+            latlng: new kakao.maps.LatLng({{ data.latitude|safe }}, {{ data.longitude|safe }})
+        },
+    {% endfor %}
 ];
 
-        
-
 // 많은 정보,,,;
-    var contents = [
+var contents = [
+    {% for data in cctv_data %}
         {
-            name: ' 구 이름 ',
-            address: ' cctv 설치된 주소 dlqfur',
-            navi: ' <div><a href= " https://map.kakao.com/link/to/ 광주광역시교통약자이동지원센터 , 35.21828687 , 126.8926489 " target="_blank" class="link">지도에서 위치 보기</a></div> ',
-            
+            name: '{{ data.address|safe }}'
         },
-       
-]
+    {% endfor %}
+];
+
 
 
 // 지도에 마커를 표시합니다 
 
 for (var i=0; i<positions.length;i++){
-	var markerPosition  = positions[i].lating
+	var markerPosition  = positions[i].latlng
 	// 마커를 생성합니다
 	var marker = new kakao.maps.Marker({
 		position: markerPosition
 	});
 	marker.setMap(map);
-    var content = '<div class="wrap">' + 
-        '    <div class="info">' + 
-        '        <div class="title">' + 
-                        contents[i].name+
-        '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-        '        </div>' + 
-        '        <div class="body">' + 
-        '            <div class="img">' +
-        '                <img src= "{% static 'cctv_icon.png' %}" width="73" height="70">' +
-        '           </div>' + 
-        '            <div class="desc">' + 
-                            contents[i].address+
-                            contents[i].navi+
-        '            </div>' + 
-        '        </div>' + 
-        '    </div>' +    
-        '</div>';
+	
+    // 커스텀 오버레이에 표시할 컨텐츠 입니다
+
+
+                var content = '<div class="wrap">' + 
+                    '    <div class="info">' + 
+                    '        <div class="title">' + 
+                                contents[i].name+ 
+                    '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+                    '        </div>' + 
+                    '        <div class="body">' + 
+                    '           <div class="img">' +
+                    '               <img src="{% static 'cctv_icon.png' %}" width="73" height="70">' +
+                    '           </div>' + 
+                    '           <div class="desc">' + 
+                                    contents[i].name+
+                    '           </div>' + 
+                    '        </div>' + 
+                    '    </div>' +    
+                    '</div>';
     // 마커 위에 커스텀오버레이를 표시합니다
     // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
   	var overlay = new kakao.maps.CustomOverlay({
@@ -156,16 +159,16 @@ for (var i=0; i<positions.length;i++){
 
 
 
-function makeClickListener(marker, overlay) {
-    return function() {
-        if (overlay.getMap()) {
-        overlay.setMap(null);
-        } 
-        else {
-        overlay.setMap(map);
-        }
+    function makeClickListener(marker, overlay) {
+        return function() {
+            if (overlay.getMap()) {
+                overlay.setMap(null);
+            } else {
+                overlay.setMap(map);
+            }
+        };
     }
-}
+    
 </script>
 </body>
-</html>
+</html> 

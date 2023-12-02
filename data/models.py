@@ -70,6 +70,20 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
+class Ccctv(models.Model):
+    cctv_id = models.AutoField(primary_key=True)
+    address = models.CharField(max_length=350)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    
+    def __str__(self):
+        return self.address
+
+    class Meta:
+        managed = False
+        db_table = 'cctv'
+
+
 class Clearance(models.Model):
     clearance = models.OneToOneField('Crime', models.DO_NOTHING, primary_key=True)
     district = models.CharField(db_column='District', max_length=30)  # Field name made lowercase.
@@ -595,3 +609,14 @@ class YongsanBylocation(models.Model):
     class Meta:
         managed = False
         db_table = 'yongsan_bylocation'
+        
+class Rate(models.Model):
+    rate_id = models.AutoField(db_column='Rate_id', primary_key=True)  # Field name made lowercase.
+    crime = models.ForeignKey(Crime, models.DO_NOTHING, blank=True, null=True)
+    clearance = models.ForeignKey(Clearance, models.DO_NOTHING, blank=True, null=True)
+    detection_rate = models.FloatField(db_column='Detection_rate', blank=True, null=True)  # Field name made lowercase.
+    district = models.CharField(db_column='District', max_length=30, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'rate'

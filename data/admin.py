@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Crime
 from .models import Clearance
+from .models import Ccctv
 
 from .models import DobongBylocation
 from .models import DongdaemunBylocation
@@ -32,6 +33,7 @@ from .models import YongsanBylocation
 
 admin.site.register(Crime)
 admin.site.register(Clearance)
+admin.site.register(Ccctv)
 
 admin.site.register(DobongBylocation)
 admin.site.register(DongdaemunBylocation)

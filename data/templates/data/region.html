@@ -44,7 +44,7 @@
 var mapContainer = document.getElementById('map'), // 지도의 중심좌표
     mapOption = { 
         center: new kakao.maps.LatLng(37.5135217,126.9739251), // 지도의 중심좌표
-        level: 8 // 지도의 확대 레벨
+        level: 9 // 지도의 확대 레벨
     }; 
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -111,39 +111,223 @@ var positions = [
     lating: new kakao.maps.LatLng( 37.4988794, 126.9516345 )
 },
 {
+    title: '<div style="padding:5px;"> 강서구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.5612346, 126.8228132 )
+},
+{
+	title: '<div style="padding:5px;"> 양천구 장소별 범죄 통계</div>',
+	lating: new kakao.maps.LatLng( 37.5247402, 126.8553909 )
+},
+{
+    title: '<div style="padding:5px;"> 구로구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.4944134, 126.8563336 )
+},
+{
+    title: '<div style="padding:5px;"> 금천구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.4605655, 126.9008183 )
+},
+{
+    title: '<div style="padding:5px;"> 영등포구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.5223245, 126.9101692 )
+},
+{
+    title: '<div style="padding:5px;"> 관악구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.4673709, 126.9453359 )
+},
+
+{
+	title: '<div style="padding:5px;"> 송파구 장소별 범죄 통계</div>',
+	lating: new kakao.maps.LatLng( 37.5056205, 127.1152992 )
+},
+{
+    title: '<div style="padding:5px;"> 강동구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.5504483, 127.1470117 )
+},
+{
+    title: '<div style="padding:5px;"> 광진구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.5467284, 127.0857543 )
+},
+{
+    title: '<div style="padding:5px;"> 중랑구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.5978139,127.0928927 )
+},
+{
+    title: '<div style="padding:5px;"> 노원구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.6525076, 127.075042 )
+},
+{
+	title: '<div style="padding:5px;"> 도봉구 장소별 범죄 통계</div>',
+	lating: new kakao.maps.LatLng( 37.6691065, 127.0323527 )
+},
+{
+    title: '<div style="padding:5px;"> 강북구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.6434801, 127.0111839 )
+}, 
+{
+    title: '<div style="padding:5px;"> 성북구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.6056991, 127.0175664, )
+},
+{
+    title: '<div style="padding:5px;"> 동대문구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.5819561, 127.054846 )
+},
+{
+    title: '<div style="padding:5px;"> 성동구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.5510171, 127.0410394 )
+},
+
+{
+	title: '<div style="padding:5px;"> 종로구 장소별 범죄 통계</div>',
+	lating: new kakao.maps.LatLng( 37.5949159, 126.977339 )
+},
+{
+    title: '<div style="padding:5px;"> 은평구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.6191784, 126.9270142 )
+},
+{
+    title: '<div style="padding:5px;"> 서대문구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.5777796, 126.9390623 )
+},
+{
+    title: '<div style="padding:5px;"> 마포구 장소별 범죄 통계</div>',
+    lating: new kakao.maps.LatLng( 37.5593115, 126.9082589 )
+},
+{
     title: '<div style="padding:5px;"> 강남구 장소별 범죄 통계</div>',
     lating: new kakao.maps.LatLng( 37.4966645, 127.0629804 )
 }
+
+
+
 ];
 
-        
 
 // 많은 정보,,,;
     var contents = [
         {
             name: ' 용산구 ',
-            address: ' 용산구 장소별 범죄 통계 데이터입니다.',
-            url: ' <div><a href= " http://127.0.0.1:8000/data/location/ " target="_blank" class="link">용산구 데이터 보기</a></div> ',
+            address: ' <div class="ellipsis">용산구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/yongsan/ " target="_blank" class="link">용산구 데이터 보기</a></div> ',
         },
         {
             name: ' 중구 ',
-            address: ' 중구 장소별 범죄 통계 데이터입니다.',
-            url: ' <div><a href= " http://corona19.dangjin.go.kr/ " target="_blank" class="link">XX구 데이터 보기</a></div> ',
+            address: '<div class="ellipsis"> 중구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/junggu " target="_blank" class="link">중구 데이터 보기</a></div> ',
         },
         {
             name: ' 서초구 ',
-            address: ' 서초구 장소별 범죄 통계 데이터입니다.',
-            url: ' <div><a href= " http://corona19.dangjin.go.kr/ " target="_blank" class="link">XX구 데이터 보기</a></div> ',
+            address: '<div class="ellipsis"> 서초구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">서초구 데이터 보기</a></div> ',
         },
         {
             name: ' 동작구 ',
-            address: ' 용산구 장소별 범죄 통계 데이터입니다.',
-            url: ' <div><a href= " http://corona19.dangjin.go.kr/ " target="_blank" class="link">XX구 데이터 보기</a></div> ',
+            address: '<div class="ellipsis"> 동작구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/dongjak " target="_blank" class="link">동작구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 강서구 ',
+            address: '<div class="ellipsis"> 강서구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">강서구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 양천구 ',
+            address: '<div class="ellipsis"> 양천구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">양천구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 구로구 ',
+            address: '<div class="ellipsis"> 구로구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">구로구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 금천구 ',
+            address: '<div class="ellipsis"> 금천구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">금천구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 영등포구 ',
+            address: '<div class="ellipsis"> 영등포구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">영등포구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 관악구 ',
+            address: '<div class="ellipsis"> 관악구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">관악구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 송파구 ',
+            address: '<div class="ellipsis"> 송파구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">송파구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 강동구 ',
+            address: '<div class="ellipsis"> 강동구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">강동구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 광진구 ',
+            address: '<div class="ellipsis"> 광진구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">광진구 데이터 보기</a></div> ',
+        },        
+        {
+            name: ' 중랑구 ',
+            address: '<div class="ellipsis"> 중랑구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">중랑구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 노원구 ',
+            address: '<div class="ellipsis"> 노원구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">노원구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 도봉구 ',
+            address: '<div class="ellipsis"> 도봉구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">도봉구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 강북구 ',
+            address: '<div class="ellipsis"> 강북구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">강북구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 성북구 ',
+            address: '<div class="ellipsis"> 성북구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">성북구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 동대문구 ',
+            address: '<div class="ellipsis"> 동대문구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">동대문구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 성동구 ',
+            address: '<div class="ellipsis"> 성동구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">성동구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 종로구 ',
+            address: '<div class="ellipsis"> 종로구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">종로구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 은평구 ',
+            address: '<div class="ellipsis"> 은평구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">은평구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 서대문구 ',
+            address: '<div class="ellipsis"> 서대문구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link">서대문구 데이터 보기</a></div> ',
+        },
+        {
+            name: ' 마포구 ',
+            address: '<div class="ellipsis"> 마포구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/ " target="_blank" class="link" 마포구 데이터 보기</a></div> ',
         },
         {
             name: ' 강남구 ',
-            address: ' 용산구 장소별 범죄 통계 데이터입니다.',
-            url: ' <div><a href= " http://corona19.dangjin.go.kr/ " target="_blank" class="link">XX구 데이터 보기</a></div> ',
+            address: '<div class="ellipsis"> 강남구 장소별 범죄 통계 데이터입니다.</div>',
+            url: ' <div><a href= " http://127.0.0.1:8000/data/gangnam " target="_blank" class="link">강남구 데이터 보기</a></div> ',
         },
 ]
 
